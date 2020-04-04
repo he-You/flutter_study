@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main()=>runApp(MyContainerApp());
+void main() => runApp(MyImageApp());
 
-class MyTextWedgetApp extends StatelessWidget{
+class MyTextWedgetApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "textWidget",
       home: Scaffold(
-        appBar:AppBar(
-          title:Text("TextWidget"),
+        appBar: AppBar(
+          title: Text("TextWidget"),
         ),
         body: Center(
           child: Text(
@@ -19,11 +19,10 @@ class MyTextWedgetApp extends StatelessWidget{
             //overflow: TextOverflow.clip,//直接截断文本
             //overflow: TextOverflow.ellipsis,//多余的使用’...‘
             style: TextStyle(
-              fontSize: 15.0,
-              color: Color.fromARGB(255, 150, 150, 150),
-              decoration: TextDecoration.underline,
-              decorationStyle: TextDecorationStyle.solid
-            ),
+                fontSize: 15.0,
+                color: Color.fromARGB(255, 150, 150, 150),
+                decoration: TextDecoration.underline,
+                decorationStyle: TextDecorationStyle.solid),
           ),
         )
       ),
@@ -31,26 +30,63 @@ class MyTextWedgetApp extends StatelessWidget{
   }
 }
 
-class MyContainerApp extends StatelessWidget{
+class MyContainerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "textWidget",
       home: Scaffold(
-        appBar:AppBar(
-          title:Text("TextWidget"),
+      appBar:AppBar(
+        title:Text("TextWidget"),
+      ),
+      body: Center(
+        child: Container(
+          child: new Text(
+            "Hello World",
+              style: TextStyle(fontSize: 25.0),
+            ),
+            alignment: Alignment.topLeft,
+            width: 400.0,
+            height: 300.0,
+            // color: Colors.lightBlue,
+            padding: const EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(10.0),
+            decoration: new BoxDecoration(
+                gradient: const LinearGradient(colors: [
+              Colors.lightBlue,
+              Colors.lightGreen,
+              Colors.orange
+            ])),
+          )
+        )
+      )
+    );
+  }
+}
+
+class MyImageApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "images",
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Images"),
         ),
         body: Center(
           child: Container(
-            child: new Text(
-              "Hello World",
-              style: TextStyle(fontSize : 20.0),
+            child: new Image.network(
+              "https://cdn.labs.topbook.cc/topbook/img/gxshycjh-2.jpg",
+              scale: 3.5,
+              fit: BoxFit.contain,
+              color: Colors.blue,
+              colorBlendMode: BlendMode.modulate,
+              repeat: ImageRepeat.repeatY,//X/Y轴对图片进行重复填充
             ),
-            alignment: Alignment.center,
-            width: 400.0,
-            height: 300.0,
-            color: Colors.lightBlue,
-          ),
+            width: 300.0,
+            height: 400.0,
+            color: Colors.orange,
+          )
         )
       )
     );
